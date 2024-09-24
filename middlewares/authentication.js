@@ -8,5 +8,8 @@ const authentication = (req,res,next)=>{
     }
     const decoded =  jwt.verify(token,'secretKey')
     console.log(decoded)
+    req.accountAddress = decoded.accountAddress
+    next()
+   
 }
 module.exports={authentication}
