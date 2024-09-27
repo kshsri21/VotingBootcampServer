@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 const {authentication} = require("../middlewares/authentication")
 const CandidateModel = require("../models/CandidateSchema")
+const multer = require("../middlewares/multer")
 
-router.post('/postCandidateImage',authentication,async(req,res)=>{
+router.post('/postCandidateImage',authentication,multer.uploadCandidate,async(req,res)=>{
     try{
         console.log("postCandidate")
         // const {accountAddress,imageName}=req.body;
