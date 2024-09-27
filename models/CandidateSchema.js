@@ -13,3 +13,7 @@ const CandidateSchema= new mongoose.Schema({
 })
 const CandidateModel = mongoose.model("candidates",CandidateSchema)
 module.exports= CandidateModel;
+
+//VoterSchema
+//VoterRoutes
+//index.js import voter routes
