@@ -3,7 +3,7 @@ const router = express.Router()
 const {authentication} = require("../middlewares/authentication")
 const multer = require("../middlewares/multer")
 
-const VoterModel = require("../models/VoterModel")
+const VoterModel = require("../models/VoterSchema")
 
 router.post('/postVoterImage', authentication , multer.uploadVoter ,async(req,res)=>{
     try{
@@ -14,7 +14,7 @@ router.post('/postVoterImage', authentication , multer.uploadVoter ,async(req,re
             imageName:imageName
         })
 
-        res.status(200).json(saveVoter)
+        res.status(200).json({message:"successfull"})
 
     }catch(error){
         console.log(error)

@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 
 require('dotenv').config()
 const connectDB = require('./db/connect')
@@ -10,6 +11,7 @@ const authenticationRoute = require("./routes/authenticationRoute")
 
 app.use(cors())
 app.use(express.json())
+app.use('/images',express.static(path.join(__dirname,'votingSystem')))
 
 app.use("/api",authenticationRoute)
 app.use("/api",candidateRoutes)
