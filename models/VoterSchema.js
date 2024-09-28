@@ -1,3 +1,5 @@
+const mongoose = require('mongoose')
+
 const VoterSchema= new mongoose.Schema({
     accountAddress:{
         type:String,
