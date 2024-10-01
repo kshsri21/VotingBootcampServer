@@ -7,11 +7,12 @@ const VoterModel = require("../models/VoterSchema")
 
 router.post('/postVoterImage', authentication , multer.uploadVoter ,async(req,res)=>{
     try{
-        const {accountAddress,imageName}=req.body;
+        const {accountAddress}=req;
+        const imageName = req.file.filename;
 
-        const saveVoter = await VoterModel.create({
-            accountAddress:accountAddress,
-            imageName:imageName
+       await VoterModel.create({
+            accountAddress,
+            imageName
         })
 
         res.status(200).json({message:"successfull"})

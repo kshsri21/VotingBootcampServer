@@ -13,6 +13,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/images',express.static(path.join(__dirname,'votingSystem')))
 
+
 app.use("/api",authenticationRoute)
 app.use("/api",candidateRoutes)
 app.use("/api",voterRoutes)
